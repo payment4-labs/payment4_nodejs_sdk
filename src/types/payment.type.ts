@@ -1,3 +1,5 @@
+import { CoverRange } from "./cover.range.type";
+
 export type CreatePaymentDto = {
   amount: number;
   callbackUrl: string;
@@ -7,6 +9,7 @@ export type CreatePaymentDto = {
   callbackParams?: object;
   language?: string;
   currency?: string;
+  cover?: CoverRange;
 };
 export type PaymentRequestType = {
   amount: number;
@@ -15,6 +18,7 @@ export type PaymentRequestType = {
   webhookUrl?: string;
   language?: string;
   currency?: string;
+  cover?: CoverRange;
 };
 export type RequestPaymentResponseType = {
   id: number;

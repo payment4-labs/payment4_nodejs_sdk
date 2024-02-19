@@ -41,18 +41,24 @@ const payment4 = new Payment4(initParams);
 ```javascript
 /**
  * amount is required
- * callbackParams, webhookParams, webhookUrl, language are optional
+ * callbackParams, webhookParams, webhookUrl, language , cover are optional
  * If no language is provided, the default language is set to 'en'
  * If no currency is provided, the default currency is set to 'USD'.
+ * Define a range around the expected payment value to allow for small fluctuations
  */
-const params = {
-  amount: 100,
-  callbackParams: { "your-key": "your-value" },
-  webhookParams: { "your-key": "your-value" },
-  webhookUrl: "https://your-domain.com/webhook",
-  language: "en",        //not sensitive to uppercase or lowercase
-  currency: "USD",       //not sensitive to uppercase or lowercase
-};
+
+  const params = {
+    amount: 100,
+    callbackParams: { "your-key": "your-value" },
+    webhookParams: { "your-key": "your-value" },
+    webhookUrl: "https://your-domain.com/webhook",
+    language: "en", //not sensitive to uppercase or lowercase
+    currency: "USD", //not sensitive to uppercase or lowercase
+    cover: {
+      coverUp: 50, // optional
+      coverDown: 20, // optional
+    },
+  };
 /**
  * requestPayment
  * @param {PaymentRequestType} params
